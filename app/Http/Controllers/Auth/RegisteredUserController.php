@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Validation\ValidationException;
 
 class RegisteredUserController extends Controller
 {
@@ -30,9 +32,26 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (Cache::has('emails')) {
+            $cachedEmails = Cache::get('emails');
+
+            if (in_array($request->email, $cachedEmails)) {
+                throw ValidationException::withMessages(['email' => 'Already Taken']);
+            }
+        } else {
+            $emails = User::pluck('email')->toArray();
+
+            Cache::put('emails', $emails, 600);
+
+            if (in_array($request->email, $emails)) {
+                throw ValidationException::withMessages(['email' => 'Already Taken']);
+            }
+        }
+
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
