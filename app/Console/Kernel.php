@@ -17,7 +17,12 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             UserSchedule::updateCacheEmail();
         })->everyMinute();
+
+        $schedule->call(function () {
+            UserSchedule::updateCacheName();
+        })->everyMinute();
     }
+
 
     /**
      * Register the commands for the application.
