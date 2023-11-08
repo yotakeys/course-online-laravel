@@ -28,7 +28,7 @@ class EmailCacheUpdate implements ShouldQueue
      */
     public function handle(): void
     {
-        echo 'EmailCacheUpdated' . PHP_EOL;
+        echo 'Email Cache Updated' . PHP_EOL;
         $emails = User::pluck('email')->toArray();
 
         Cache::put('emails', $emails, 600);
