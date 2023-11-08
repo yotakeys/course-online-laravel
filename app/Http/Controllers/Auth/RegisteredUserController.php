@@ -14,6 +14,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Validation\ValidationException;
+use App\Jobs\EmailCacheUpdate;
 
 class RegisteredUserController extends Controller
 {
@@ -39,13 +40,7 @@ class RegisteredUserController extends Controller
                 throw ValidationException::withMessages(['email' => 'Already Taken']);
             }
         } else {
-            $emails = User::pluck('email')->toArray();
-
-            Cache::put('emails', $emails, 600);
-
-            if (in_array($request->email, $emails)) {
-                throw ValidationException::withMessages(['email' => 'Already Taken']);
-            }
+            EmailCacheUpdate::dispatch();
         }
 
 

@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
                 'email' => $user['email'],
                 'password' => Hash::make($user['password']),
                 'remember_token' => Str::random(10),
+                'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
 
