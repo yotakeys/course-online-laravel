@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-primary border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-primary border-b-2 border-black ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -28,11 +28,17 @@
                 </div>
 
             </div>
-            <!-- Login button -->
+            <!-- Conditional button -->
             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                    {{ __('Login') }}
-                </x-nav-link>
+                @if(Route::currentRouteName() == 'login')
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('Register') }}
+                    </x-nav-link>
+                @else
+                    <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                        {{ __('Login') }}
+                    </x-nav-link>
+                @endif
             </div>
 
             <!-- Login button -->
