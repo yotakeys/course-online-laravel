@@ -19,8 +19,8 @@ class CheckAdmin
     {
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
-        if ($user->role_id != 3) {
-            return redirect()->route('welcome');
+        if ($user->role_id != 2) {
+            return redirect()->route('dashboard');
         }
         return $next($request);
     }
