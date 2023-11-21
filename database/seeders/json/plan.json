@@ -1,10 +1,10 @@
 [
     {
       "id": 1,
-      "name": "READER"
+      "name": "FREE"
     },
     {
       "id" : 2,
-      "name" : "ADMIN"
+      "name" : "BASIC"
     }
 ]
