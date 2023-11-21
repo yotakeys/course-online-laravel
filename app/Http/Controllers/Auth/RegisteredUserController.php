@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Validation\ValidationException;
-use App\Jobs\EmailCacheUpdate;
 
 class RegisteredUserController extends Controller
 {
@@ -33,27 +30,15 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        if (Cache::has('emails')) {
-            $cachedEmails = Cache::get('emails');
-
-            if (in_array($request->email, $cachedEmails)) {
-                throw ValidationException::withMessages(['email' => 'Already Taken']);
-            }
-        } else {
-            EmailCacheUpdate::dispatch();
-        }
-
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'role_id' => 1,
             'password' => Hash::make($request->password),
         ]);
 
