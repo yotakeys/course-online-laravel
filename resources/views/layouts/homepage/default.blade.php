@@ -18,7 +18,9 @@
         <div class="min-h-screen bg-primary">
             @include('layouts.header')
             <x-blindspot />
-            @yield('content')
+            @yield('landing-section')
+            @yield('popular-courses-section')
+            @include('layouts.footer')
         </div>
     </body>
 </html>
