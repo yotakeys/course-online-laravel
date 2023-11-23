@@ -17,10 +17,12 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-primary">
             @include('layouts.header')
-            <x-blindspot />
-            @yield('landing-section')
-            @yield('popular-courses-section')
-            @include('layouts.footer')
+            <div class="pt-16">
+                <x-blindspot />
+                @yield('landing-section')
+                @yield('popular-courses-section')
+                @include('layouts.footer')
+            </div>
         </div>
     </body>
 </html>
