@@ -1,10 +1,14 @@
 [
     {
       "id": 1,
-      "name": "FREE"
+      "name": "FREE",
+      "description" : "Free plan",
+      "price" : 0
     },
     {
       "id" : 2,
-      "name" : "BASIC"
+      "name" : "BASIC",
+      "description" : "Basic plan",
+      "price" : 100
     }
 ]

@@ -24,6 +24,8 @@ class PlanSeeder extends Seeder
             $payload[] = [
                 'id' => $plan['id'],
                 'name' => $plan['name'],
+                'description' => $plan['description'],
+                'price' => $plan['price'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
