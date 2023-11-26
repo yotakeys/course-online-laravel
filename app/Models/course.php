@@ -19,4 +19,14 @@ class Course extends Model
         'description',
         'plan_id',
     ];
+
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
+    }
+
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }
