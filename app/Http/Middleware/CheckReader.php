@@ -20,7 +20,7 @@ class CheckReader
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
         if ($user->role_id != 1) {
-            return redirect()->route('dashboard');
+            return redirect()->route('admin.course.list');
         }
         return $next($request);
     }
