@@ -76,7 +76,7 @@
                 @endforeach
             </div>
             <div class="flex justify-center pt-10 py-1">
-                <a href="{{ route('catalog') }}">
+                <a href="{{ route('catalog.index') }}">
                     <x-secondary-button class="bg-yellow-500 border-none py-3">Explore Full Catalog</x-secondary-button>
                 </a>
             </div>
