@@ -32,36 +32,41 @@
             <span class="text-center align-middle pt-0.5">20 Result</span>
         </div>
         <!-- drop down: most recent and most popular -->
-        <select class="ml-auto text-sm h-9 mt-2 sm:mt-0">
-            <option value="recent">Most Recent</option>
-            <option value="popular">Most Popular</option>
-        </select>
+<!-- drop down: most recent and most popular -->
+<form method="GET" action="{{ route('catalog.sort') }}" id="sortForm" class="ml-auto">
+    <select name="sort" class="ml-auto text-sm h-9 mt-2 sm:mt-0" onchange="document.getElementById('sortForm').submit();">
+        <option value="recent" {{ request('sort') == 'recent' ? 'selected' : '' }}>Most Recent</option>
+        <option value="popular" {{ request('sort') == 'popular' ? 'selected' : '' }}>Most Popular</option>
+    </select>
+</form>
     </div>
     <div class="catalog__content bg-primary overflow-hidden grid grid-cols-5">
         <div class="side__content col-span-1">
             <div class="filter__tools pt-3">
                 <i class="ri-filter-3-line"></i>
                 <span><b>Filters</b></span>
-                <button class="clear-filter-button text-sm text-gray-500">Clear Filters</button>
+                <a href="{{ route('catalog.index') }}" class="clear-filter-button text-sm text-gray-700">Clear Filters</a>
             </div>
-            <div class="filter__price border-gray-400 border-b pb-4">
-                <div class="pt-2 pb-2 ">
-                    <span>
-                        <b>Price</b>
-                    </span>
-                    <button class="text-sm text-secondary">View Price</button>
-                </div>
-                <div class="price__range">
-                    <div>
-                        <input type="checkbox" class="free__input bg-primary">
-                        <span class="text-sm pl-1">Free</span>
+            <form method="GET" action="{{ route('catalog.filter') }}">
+                <div class="filter__price border-gray-400 border-b pb-4">
+                    <div class="pt-2 pb-2 ">
+                        <span>
+                            <b>Price</b>
+                        </span>
+                        <button type="submit" class="text-sm text-secondary">Apply Filters</button>
                     </div>
-                    <div>
-                        <input type="checkbox" class="free__input bg-primary">
-                        <span class="text-sm pl-1">Paid</span>
+                    <div class="price__range">
+                        <div>
+                            <input type="checkbox" name="price[]" value="free" {{ in_array('free', request('price', [])) ? 'checked' : '' }} class="free__input bg-primary">
+                            <span class="text-sm pl-1">Free</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="price[]" value="paid" {{ in_array('paid', request('price', [])) ? 'checked' : '' }} class="free__input bg-primary">
+                            <span class="text-sm pl-1">Paid</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="main__content col-span-4 grid pt-3">
             <div class="listing__course pl-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1">
