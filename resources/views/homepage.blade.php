@@ -70,9 +70,9 @@
                 <h1 class="text-center pt-6 pb-3 text-4xl font-semibold text-white">Popular Courses</h1>
                 <p class="text-center text-xl text-white">Find your passion and start learning! now or never</p>
             </div>
-            <div class="items-center flex justify-center overflow-x-auto pl-2 space-x-2">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 @foreach ($courses as $course)
-                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>}
+                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
                 @endforeach
             </div>
             <div class="flex justify-center pt-10 py-1">
@@ -81,4 +81,3 @@
         </div>
     </div>
 @endsection
-

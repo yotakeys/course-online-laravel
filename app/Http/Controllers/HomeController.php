@@ -15,4 +15,12 @@ class HomeController extends Controller
 
         return view('homepage', ['courses' => $courses]);
     }
+
+    public function catalog()
+    {
+        $courses = Course::with('sections', 'plan')
+            ->get();
+
+        return view('catalog', ['courses' => $courses]);
+    }
 }
