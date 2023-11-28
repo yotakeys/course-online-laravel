@@ -72,7 +72,7 @@
             </div>
             <div class="items-center flex justify-center overflow-x-auto pl-2 space-x-2">
                 @foreach ($courses as $course)
-                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->title,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>}
+                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>}
                 @endforeach
             </div>
             <div class="flex justify-center pt-10 py-1">
