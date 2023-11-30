@@ -28,6 +28,7 @@ class RoleSeeder extends Seeder
                 'updated_at' => now(),
             ];
         }
+
         DB::table('roles')->insert($payload);
     }
 }
