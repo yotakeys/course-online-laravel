@@ -21,7 +21,7 @@ class SectionFactory extends Factory
 
         return [
             'title' => $this->faker->sentence(4),
-            'text' => $this->faker->paragraph(4),
+            'text' => $this->faker->paragraph(20),
             'course_id' => $this->faker->randomElement($courses),
         ];
     }

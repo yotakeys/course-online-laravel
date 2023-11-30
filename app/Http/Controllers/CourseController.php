@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Plan;
+use App\Models\Transaksi;
 
 class CourseController extends Controller
 {
@@ -97,7 +98,7 @@ class CourseController extends Controller
         }
     }
 
-    public function courseDetail(int $id)
+    public function courseDetailAdmin(int $id)
     {
         $course = Course::with('sections', 'plan')->find($id);
 
@@ -176,5 +177,20 @@ class CourseController extends Controller
             ->get();
 
         return view('catalog', ['courses' => $courses]);
+    }
+
+    public function courseDetailReader(int $id)
+    {
+
+        $course = Course::with('sections', 'plan')->find($id);
+        $result = Transaksi::where('user_id', auth()->user()->id)
+            ->where('status_id', 4)
+            ->first();
+
+        if (!$result && $course->plan_id == 2) {
+            return redirect()->route('reader.pricing')->with('error', 'You must buy a plan first');
+        }
+
+        return view('reader.course-detail', ['course' => $course]);
     }
 }

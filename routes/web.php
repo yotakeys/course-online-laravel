@@ -36,6 +36,8 @@ Route::middleware(['auth', 'verified', 'reader'])->group(function () {
     Route::get('/reader/catalog/filter', [CourseController::class, 'readerCatalogfilter'])->name('reader.catalog.filter');
     Route::get('/reader/catalog/sort', [CourseController::class, 'readerCatalogSort'])->name('reader.catalog.sort');
     Route::get('/reader/pricing', [PlanController::class, 'getAllPlanReader'])->name('reader.pricing');
+    Route::get('/reader/course/{id}', [CourseController::class, 'courseDetailReader'])->name('reader.course.detail');
+    Route::get('/reader/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailReader'])->name('reader.section.detail');
 });
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -44,7 +46,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::post('/admin/add-course', [CourseController::class, 'addCourse'])->name('admin.course.add');
     Route::get('/admin/course/{id}/edit', [CourseController::class, 'formEditCourse'])->name('admin.course.form-edit');
     Route::patch('/admin/course/{id}/edit', [CourseController::class, 'editCourse'])->name('admin.course.edit');
-    Route::get('/admin/course/{id}', [CourseController::class, 'courseDetail'])->name('admin.course.detail');
+    Route::get('/admin/course/{id}', [CourseController::class, 'courseDetailAdmin'])->name('admin.course.detail');
     Route::delete('/admin/course/{id}', [CourseController::class, 'deleteCourse'])->name('admin.course.delete');
 
     Route::get('/admin/course/{course_id}/section', [SectionController::class, 'formAddSection'])->name('admin.section.form-add');
@@ -52,7 +54,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/course/{course_id}/section/{section_id}/edit', [SectionController::class, 'formEditSection'])->name('admin.section.form-edit');
     Route::patch('/admin/course/{course_id}/section/{section_id}/edit', [SectionController::class, 'editSection'])->name('admin.section.edit');
     Route::delete('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'deleteSection'])->name('admin.section.delete');
-    Route::get('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetail'])->name('admin.section.detail');
+    Route::get('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailAdmin'])->name('admin.section.detail');
 
     Route::get('/admin/transaksi', [TransaksiController::class, 'getAllTransaksi'])->name('admin.transaksi.list');
     Route::get('/admin/transaksi/{id}', [TransaksiController::class, 'transaksiDetail'])->name('admin.transaksi.detail');

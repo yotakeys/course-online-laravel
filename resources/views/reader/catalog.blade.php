@@ -69,7 +69,9 @@
             <div class="main__content lg:col-span-4 grid pt-3">
                 <div class="listing__course pl-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1">
                     @foreach ($courses as $course)
-                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                    <a href="{{ route('reader.course.detail', ['id' => $course->id]) }}">
+                        <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                    </a>
                     @endforeach
                 </div>
             </div>
