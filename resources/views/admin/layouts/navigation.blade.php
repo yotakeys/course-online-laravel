@@ -12,10 +12,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('admin.course.list')" :active="request()->routeIs(['admin.course.list','admin.course.form'])">
+                    <x-nav-link :href="route('admin.course.list')" :active="request()->routeIs(['admin.course.list','admin.course.form-add', 'admin.course.detail'])">
                         {{ __('Course') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('admin.course.form')" :active="request()->routeIs()">
+                    <x-nav-link :href="route('admin.course.form-add')" :active="request()->routeIs()">
                         {{ __('Transaksi') }}
                     </x-nav-link>
                 </div>
