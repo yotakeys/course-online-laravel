@@ -39,15 +39,17 @@
 
     <div class="px-24">
         @foreach ($course->sections as $section)
+        <a href="{{ route('admin.section.detail', ['section_id' => $section->id, 'course_id' => $course->id]) }}">
             <div class="section__header border-gray-400 border-b flex flex-col sm:flex-row pt-2 pb-2">
                 <div class="course__header flex items-center pr-2 pb-2 pt-2 align-middle">
                     <h1 class="section__title text-left pr-2 font-bold text-xl">{{$section->title}}</h1>
                 </div>
             </div>
+        </a>
         @endforeach
     </div>
     <div class="flex justify-center pt-10 py-1">
-        <a href="{{ route('admin.course.form-add') }}">
+        <a href="{{ route('admin.section.form-add', ['course_id' => $course->id]) }}">
             <x-secondary-button class="bg-lime-700 border-none py-3">Add Lesson</x-secondary-button>
         </a>
     </div>

@@ -1,7 +1,7 @@
 <x-admin-app-layout>
     <div class="flex justify-center pt-10 py-1">
-        <a href="{{ route('admin.course.list') }}">
-            <x-secondary-button class="bg-yellow-500 border-none py-3">Back To List</x-secondary-button>
+        <a href="{{ route('admin.course.detail', ['id' => $course->id]) }}">
+            <x-secondary-button class="bg-yellow-500 border-none py-3">Back To Detail</x-secondary-button>
         </a>
     </div>
 

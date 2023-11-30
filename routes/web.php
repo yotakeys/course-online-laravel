@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,13 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::patch('/admin/course/{id}/edit', [CourseController::class, 'editCourse'])->name('admin.course.edit');
     Route::get('/admin/course/{id}', [CourseController::class, 'courseDetail'])->name('admin.course.detail');
     Route::delete('/admin/course/{id}', [CourseController::class, 'deleteCourse'])->name('admin.course.delete');
+
+    Route::get('/admin/course/{course_id}/section', [SectionController::class, 'formAddSection'])->name('admin.section.form-add');
+    Route::post('/admin/course/{course_id}/section', [SectionController::class, 'addSection'])->name('admin.section.add');
+    Route::get('/admin/course/{course_id}/section/{section_id}/edit', [SectionController::class, 'formEditSection'])->name('admin.section.form-edit');
+    Route::patch('/admin/course/{course_id}/section/{section_id}/edit', [SectionController::class, 'editSection'])->name('admin.section.edit');
+    Route::delete('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'deleteSection'])->name('admin.section.delete');
+    Route::get('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetail'])->name('admin.section.detail');
 });
 
 Route::middleware('auth')->group(function () {
