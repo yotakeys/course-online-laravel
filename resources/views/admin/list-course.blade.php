@@ -1,4 +1,12 @@
 <x-admin-app-layout>
+    <div class="flex justify-center pt-10 py-1">
+        <a href="{{ route('admin.course.form') }}">
+            <x-secondary-button class="bg-yellow-500 border-none py-3">Add Course</x-secondary-button>
+        </a>
+    </div>
+
+    <br>
+
     <div class="course__content bg-primary overflow-hidden grid grid-cols-3">
             <div class="main__content col-span-4 grid">
                 <div class="listing__course pl-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1">

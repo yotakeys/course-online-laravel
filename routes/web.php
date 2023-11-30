@@ -28,7 +28,8 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/list-course', [CourseController::class, 'getAllCourseAdmin'])->name('admin.course.list');
-    Route::get('/admin/add-course', [CourseController::class, 'formAddCourse'])->name('admin.course.add');
+    Route::get('/admin/add-course', [CourseController::class, 'formAddCourse'])->name('admin.course.form');
+    Route::post('/admin/add-course', [CourseController::class, 'addCourse'])->name('admin.course.add');
 });
 
 Route::middleware('auth')->group(function () {
