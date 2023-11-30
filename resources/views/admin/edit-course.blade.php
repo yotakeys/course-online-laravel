@@ -17,7 +17,6 @@
                 <select id="plan_id" class="block mt-1 w-full" name="plan_id" required autofocus autocomplete="plan">
                     @foreach ($plans as $plan)
                         <option @if ($plan->id == $course->plan_id) selected @endif value="{{ $plan->id }}">{{ $plan->name }}</option>
-                        <option value="{{ $plan->id }}">{{ $plan->name }}</option>
                     @endforeach
                 </select>
                 <x-input-error :messages="$errors->get('plan_id')" class="mt-2" />

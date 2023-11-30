@@ -36,29 +36,30 @@ class TransaksiController extends Controller
 
     public function getAllTransaksi()
     {
-        $transaksis = Transaksi::all();
+        $transaksis = Transaksi::with(['user', 'plan', 'status'])->get();
 
-        return view('transaksi.transaksi-all', ['transaksis' => $transaksis]);
+        return view('admin.list-transaksi', ['transaksis' => $transaksis]);
     }
 
-    public function getTransaksiById(int $id)
+    public function transaksiDetail(int $id)
     {
-        $transaksis = Transaksi::find($id);
-        $status = Status::all();
-
-        return view('transaksi.transaksi-by-id', ['transaksis' => $transaksis, 'status' => $status]);
+        $transaksi = Transaksi::with(['user', 'plan', 'status'])->find($id);
+        $statuses = Status::all();
+        return view('admin.transaksi-detail', ['transaksi' => $transaksi, 'statuses' => $statuses]);
     }
 
     public function changeStatusTransaksi(Request $request, int $id)
     {
         $request->validate([
-            'status' => 'required',
+            'status_id' => 'required',
             'report' => 'required',
         ]);
 
         $transaksi = Transaksi::find($id);
-        $transaksi->status = $request->status;
+        $transaksi->status_id = $request->status_id;
         $transaksi->report = $request->report;
         $transaksi->save();
+
+        return redirect()->route('admin.transaksi.list')->with('success', 'Status transaksi updated successfully');
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,6 +47,10 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::patch('/admin/course/{course_id}/section/{section_id}/edit', [SectionController::class, 'editSection'])->name('admin.section.edit');
     Route::delete('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'deleteSection'])->name('admin.section.delete');
     Route::get('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetail'])->name('admin.section.detail');
+
+    Route::get('/admin/transaksi', [TransaksiController::class, 'getAllTransaksi'])->name('admin.transaksi.list');
+    Route::get('/admin/transaksi/{id}', [TransaksiController::class, 'transaksiDetail'])->name('admin.transaksi.detail');
+    Route::patch('/admin/transaksi/{id}', [TransaksiController::class, 'changeStatusTransaksi'])->name('admin.transaksi.change-status');
 });
 
 Route::middleware('auth')->group(function () {
