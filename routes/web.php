@@ -29,7 +29,7 @@ Route::get('/catalog/sort', [CatalogController::class, 'sort'])->name('catalog.s
 Route::get('/pricing', [PlanController::class, 'index'])->name('pricing.index');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('reader.dashboard');
 })->middleware(['auth', 'verified', 'reader'])->name('dashboard');
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {

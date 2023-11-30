@@ -18,7 +18,7 @@
                         </div>
                         <div>Unlock skills that will help you succeed in our rapidly changing world with courses on machine learning, ChatGPT, and more.</div>
                     </div>
-                    <div class="flex justify-end md:pr-5 lg:pr-10 hidden sm:block">
+                    <div class="justify-end md:pr-5 lg:pr-10 hidden sm:block">
                         <img class="object-cover md:w-[200px] lg:w-[300px] h-auto" src="{{ asset('images/catalog-img.png') }}" alt="image">
                     </div>
                 </div>

@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Schemacode') }}</title>
+        <title>{{ 'Dashboard | Schemacode' }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
@@ -16,12 +17,10 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-primary">
-            @include('admin.layouts.navigation')
-
-            <!-- Page Content -->
-            <main class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                {{ $slot }}
-            </main>
+            @include('reader.layouts.navigation')
+            <div class="pt-16 px-2 sm:px-0">
+                @yield('content-section')
+            </div>
         </div>
     </body>
 </html>
