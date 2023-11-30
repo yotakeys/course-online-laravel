@@ -45,4 +45,11 @@ class PlanController extends Controller
 
         return view('plan.plan-by-id', ['plans' => $plans]);
     }
+
+    public function getAllPlanReader()
+    {
+        $plans = Plan::all();
+
+        return view('reader.pricing', ['plans' => $plans]);
+    }
 }

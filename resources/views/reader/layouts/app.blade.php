@@ -18,9 +18,12 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-primary">
             @include('reader.layouts.navigation')
-            <div class="pt-16 px-2 sm:px-0">
+            <main class="pt-16 px-2 sm:px-0">
+                {{ $slot }}
+            </main>
+<!--             <div class="pt-16 px-2 sm:px-0">
                 @yield('content-section')
-            </div>
+            </div> -->
         </div>
     </body>
 </html>

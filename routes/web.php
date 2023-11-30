@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
@@ -22,15 +21,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
 
-Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
-Route::get('/catalog/filter', [CatalogController::class, 'filter'])->name('catalog.filter');
-Route::get('/catalog/sort', [CatalogController::class, 'sort'])->name('catalog.sort');
+Route::get('/catalog', [CourseController::class, 'catalogIndex'])->name('catalog.index');
+Route::get('/catalog/filter', [CourseController::class, 'catalogFilter'])->name('catalog.filter');
+Route::get('/catalog/sort', [CourseController::class, 'catalogSort'])->name('catalog.sort');
 
 Route::get('/pricing', [PlanController::class, 'index'])->name('pricing.index');
 
 Route::get('/dashboard', function () {
     return view('reader.dashboard');
 })->middleware(['auth', 'verified', 'reader'])->name('dashboard');
+
+Route::middleware(['auth', 'verified', 'reader'])->group(function () {
+    Route::get('/reader/catalog', [CourseController::class, 'getAllCourseReader'])->name('reader.catalog');
+    Route::get('/reader/catalog/filter', [CourseController::class, 'readerCatalogfilter'])->name('reader.catalog.filter');
+    Route::get('/reader/catalog/sort', [CourseController::class, 'readerCatalogSort'])->name('reader.catalog.sort');
+    Route::get('/reader/pricing', [PlanController::class, 'getAllPlanReader'])->name('reader.pricing');
+});
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/list-course', [CourseController::class, 'getAllCourseAdmin'])->name('admin.course.list');
