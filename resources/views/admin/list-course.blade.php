@@ -7,6 +7,17 @@
     </div>
 
     <br>
+    <form method="GET" action="{{ route('admin.course.list') }}">
+        <div class="flex justify-center px-24">
+            <x-text-input id="search" class="block mt-1 w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+            <div class="flex items-center justify-end mt-4">
+                    <x-primary-button class="ml-4">
+                        {{ __('Search') }}
+                    </x-primary-button>
+                </div>
+        </div>
+    </form>
+    <br>
 
     <div class="course__content bg-primary overflow-hidden grid grid-cols-3">
             <div class="main__content col-span-4 grid">

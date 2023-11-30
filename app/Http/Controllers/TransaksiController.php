@@ -34,11 +34,31 @@ class TransaksiController extends Controller
     }
 
 
-    public function getAllTransaksi()
+    public function getAllTransaksi(Request $request)
     {
-        $transaksis = Transaksi::with(['user', 'plan', 'status'])->get();
+        $request->validate([
+            'search' => 'nullable|max:255',
+        ]);
 
-        return view('admin.list-transaksi', ['transaksis' => $transaksis]);
+        if ($request->search) {
+            $transaksis = Transaksi::with(['user', 'plan', 'status'])
+                ->whereHas('user', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                })
+                ->orWhereHas('user', function ($query) use ($request) {
+                    $query->where('email', 'like', '%' . $request->search . '%');
+                })
+                ->orWhereHas('status', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                })
+                ->get();
+        } else {
+            $transaksis = Transaksi::with(['user', 'plan', 'status'])->get();
+        }
+
+        $statuses = Status::all();
+
+        return view('admin.list-transaksi', ['transaksis' => $transaksis, 'statuses' => $statuses, 'search' => $request->search]);
     }
 
     public function transaksiDetail(int $id)
