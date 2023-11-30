@@ -4,6 +4,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PlanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/catalog/filter', [CatalogController::class, 'filter'])->name('catalog.filter');
 Route::get('/catalog/sort', [CatalogController::class, 'sort'])->name('catalog.sort');
+
+Route::get('/pricing', [PlanController::class, 'index'])->name('pricing.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

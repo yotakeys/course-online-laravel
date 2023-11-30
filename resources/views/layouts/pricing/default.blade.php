@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ 'Catalog | Schemacode' }}</title>
+        <title>{{ 'Pricing | Schemacode' }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,7 +18,7 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-primary">
             @include('layouts.header')
-            <div class="pt-16 px-2 sm:px-0">
+            <div class="pt-16">
                 @yield('content-section')
                 @include('layouts.footer')
             </div>

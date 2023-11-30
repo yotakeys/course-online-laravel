@@ -3,7 +3,7 @@
     Nama : Keyisa Raihan Illah Setiadi
     NRP : 5025211002
 
-    Nama : Alfan Lukeyan Rizky
+    Nama : Alfan Lukeyan Rizki
     NRP : 5025211046
 
     Kelas : PBKK D

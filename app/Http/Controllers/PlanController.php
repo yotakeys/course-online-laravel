@@ -7,6 +7,13 @@ use App\Models\Plan;
 
 class PlanController extends Controller
 {
+
+    public function index()
+    {
+        $plans = Plan::all();   
+        return view('pricing', ['plans' => $plans]);
+    }
+
     public function formAddPlan()
     {
         return view('plan.plan-add');
