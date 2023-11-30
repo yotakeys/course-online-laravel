@@ -36,8 +36,16 @@ Route::middleware(['auth', 'verified', 'reader'])->group(function () {
     Route::get('/reader/catalog/filter', [CourseController::class, 'readerCatalogfilter'])->name('reader.catalog.filter');
     Route::get('/reader/catalog/sort', [CourseController::class, 'readerCatalogSort'])->name('reader.catalog.sort');
     Route::get('/reader/pricing', [PlanController::class, 'getAllPlanReader'])->name('reader.pricing');
+
     Route::get('/reader/course/{id}', [CourseController::class, 'courseDetailReader'])->name('reader.course.detail');
+
     Route::get('/reader/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailReader'])->name('reader.section.detail');
+
+    Route::get('/reader/transaksi', [TransaksiController::class, 'getAllTransaksiReader'])->name('reader.transaksi.list');
+    Route::get('/reader/transaksi/form/{id}', [TransaksiController::class, 'formAddTransaksi'])->name('reader.transaksi.form-add');
+    Route::get('/reader/transaksi/{id}', [TransaksiController::class, 'formEditTransaksi'])->name('reader.transaksi.form-edit');
+    Route::patch('/reader/transaksi/{id}', [TransaksiController::class, 'editTransaksi'])->name('reader.transaksi.edit');
+    Route::post('/reader/transaksi', [TransaksiController::class, 'addTransaksi'])->name('reader.transaksi.add');
 });
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -56,8 +64,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::delete('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'deleteSection'])->name('admin.section.delete');
     Route::get('/admin/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailAdmin'])->name('admin.section.detail');
 
-    Route::get('/admin/transaksi', [TransaksiController::class, 'getAllTransaksi'])->name('admin.transaksi.list');
-    Route::get('/admin/transaksi/{id}', [TransaksiController::class, 'transaksiDetail'])->name('admin.transaksi.detail');
+    Route::get('/admin/transaksi', [TransaksiController::class, 'getAllTransaksiAdmin'])->name('admin.transaksi.list');
+    Route::get('/admin/transaksi/{id}', [TransaksiController::class, 'transaksiDetailAdmin'])->name('admin.transaksi.detail');
     Route::patch('/admin/transaksi/{id}', [TransaksiController::class, 'changeStatusTransaksi'])->name('admin.transaksi.change-status');
 });
 

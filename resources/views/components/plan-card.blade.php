@@ -10,7 +10,7 @@
         </div>
         @if($title == "Basic")
         <div class="button__try flex justify-center py-5">
-            <a href="{{ route('login') }}">
+            <a href="{{ route('reader.transaksi.form-add', ['id' => 2]) }}">
                 <x-secondary-button class="bg-yellow-500 border-none py-3">Try Basic</x-secondary-button>
             </a>
         </div>

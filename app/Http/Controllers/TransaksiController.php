@@ -6,35 +6,47 @@ use Illuminate\Http\Request;
 use App\Models\Transaksi;
 use App\Models\Status;
 use App\Models\Plan;
+use Illuminate\Support\Str;
 
 class TransaksiController extends Controller
 {
-    public function formAddTransaksiByPlanId(int $id)
+    public function formAddTransaksi(int $id)
     {
-        $plans = Plan::find($id);
+        $plan = Plan::find($id);
 
-        return view('transaksi.transaksi-add-by-plan-id', ['plans' => $plans]);
+        return view('reader.add-transaksi', ['plan' => $plan]);
     }
 
     public function addTransaksi(Request $request)
     {
         $request->validate([
             'total_price' => 'required',
-            'image_url' => 'required',
+            'image' => 'required',
             'plan_id' => 'required',
         ]);
 
+
+
+        $random_string = Str::random(10);
+
+        $file_name = "{$random_string}-{$request->image->getClientOriginalName()}";
+        $request->image->storeAs('public/images', $file_name);
+        $image_url = "storage/images/{$file_name}";
+
+
         Transaksi::create([
             'user_id' => auth()->user()->id,
-            'status' => 1,
+            'status_id' => 1,
             'total_price' => $request->total_price,
-            'image_url' => $request->image_url,
+            'image_url' => $image_url,
             'plan_id' => $request->plan_id,
         ]);
+
+        return redirect()->route('reader.transaksi.list')->with('success', 'Transaksi added successfully');
     }
 
 
-    public function getAllTransaksi(Request $request)
+    public function getAllTransaksiAdmin(Request $request)
     {
         $request->validate([
             'search' => 'nullable|max:255',
@@ -61,7 +73,7 @@ class TransaksiController extends Controller
         return view('admin.list-transaksi', ['transaksis' => $transaksis, 'statuses' => $statuses, 'search' => $request->search]);
     }
 
-    public function transaksiDetail(int $id)
+    public function transaksiDetailAdmin(int $id)
     {
         $transaksi = Transaksi::with(['user', 'plan', 'status'])->find($id);
         $statuses = Status::all();
@@ -81,5 +93,54 @@ class TransaksiController extends Controller
         $transaksi->save();
 
         return redirect()->route('admin.transaksi.list')->with('success', 'Status transaksi updated successfully');
+    }
+
+    public function getAllTransaksiReader(Request $request)
+    {
+        $request->validate([
+            'search' => 'nullable|max:255',
+        ]);
+
+        if ($request->search) {
+            $transaksis = Transaksi::with(['user', 'plan', 'status'])
+                ->where('user_id', auth()->user()->id)
+                ->orWhereHas('status', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                })
+                ->orWhereHas('plan', function ($query) use ($request) {
+                    $query->where('name', 'like', '%' . $request->search . '%');
+                })
+                ->get();
+        } else {
+            $transaksis = Transaksi::with(['user', 'plan', 'status'])->where('user_id', auth()->user()->id)->get();
+        }
+
+        return view('reader.transaksi-list', ['transaksis' => $transaksis, 'search' => $request->search]);
+    }
+
+    public function formEditTransaksi(int $id)
+    {
+        $transaksi = Transaksi::with(['user', 'plan', 'status'])->find($id);
+
+        return view('reader.edit-transaksi', ['transaksi' => $transaksi]);
+    }
+
+    public function editTransaksi(Request $request, int $id)
+    {
+        $request->validate([
+            'image' => 'required',
+        ]);
+
+        $random_string = Str::random(10);
+
+        $file_name = "{$random_string}-{$request->image->getClientOriginalName()}";
+        $request->image->storeAs('public/images', $file_name);
+        $image_url = "storage/images/{$file_name}";
+
+        $transaksi = Transaksi::find($id);
+        $transaksi->image_url = $image_url;
+        $transaksi->save();
+
+        return redirect()->route('reader.transaksi.list')->with('success', 'Transaksi updated successfully');
     }
 }
