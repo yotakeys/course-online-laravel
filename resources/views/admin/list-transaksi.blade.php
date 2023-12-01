@@ -1,6 +1,6 @@
 <x-admin-app-layout>
-    <div class="transaksi__containe max-w-7xl mx-auto px-2 pt-20">
-        <div class="">
+    <div class="transaksi__container max-w-7xl mx-auto sm:px-2 md:px-6 lg:px-8 ">
+        <div class="pt-3">
             <form method="GET" action="{{ route('admin.transaksi.list') }}">
                 <div class="flex justify-center ">
                     <x-text-input id="search" class="block w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
@@ -31,7 +31,7 @@
                         <td class="py-2 px-4 text-center">{{$transaksi->status->name}}</td>
                         <td class ="py-2 px-4 text-center">
                             <a href="{{ route('admin.transaksi.detail', ['id' => $transaksi->id])}}">
-                                <x-secondary-button class="border-blue-500 py-3">Detail</x-secondary-button>
+                                <x-secondary-button class="border-blue-700 py-3">Detail</x-secondary-button>
                             </a>
                         </td>
                     </tr>

@@ -19,7 +19,7 @@
             @include('admin.layouts.navigation')
 
             <!-- Page Content -->
-            <main class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <main class="pt-16 px-2 sm:px-0">
                 {{ $slot }}
             </main>
         </div>

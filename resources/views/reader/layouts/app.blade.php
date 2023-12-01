@@ -13,17 +13,14 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/css/clock.css', 'resources/js/app.js', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/css/clock.css', 'resources/js/app.js', 'resources/js/clock.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-primary">
             @include('reader.layouts.navigation')
-            <main class="px-2 sm:px-0">
+            <main class="pt-16 px-2 sm:px-0">
                 {{ $slot }}
             </main>
-<!--             <div class="pt-16 px-2 sm:px-0">
-                @yield('content-section')
-            </div> -->
         </div>
     </body>
 </html>

@@ -1,6 +1,6 @@
 <x-admin-app-layout>
-    <div class="admin__course__list max-w-7xl mx-auto px-2 pt-20">
-        <div class="search__bar pb-5">
+    <div class="admin__course__list max-w-7xl mx-auto sm:px-2 md:px-6 lg:px-8">
+        <div class="search__bar pb-5 pt-3">
             <form method="GET" action="{{ route('admin.course.list') }}">
                 <div class="flex justify-center">
                     <x-text-input id="search" class="block w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
