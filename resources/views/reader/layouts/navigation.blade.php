@@ -18,7 +18,7 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reader.catalog')" :active="request()->routeIs(['reader.catalog', 'reader.course.detail', 'reader.section.detail'])">
-                        {{ __('Course') }}
+                        {{ __('Catalog') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

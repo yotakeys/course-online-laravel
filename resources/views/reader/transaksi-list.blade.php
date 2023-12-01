@@ -1,20 +1,17 @@
 <x-reader-app-layout>
-
-
-    <div class="px-24 py-8">
-        <form method="GET" action="{{ route('reader.transaksi.list') }}">
-            <div class="flex justify-center px-24">
-                <x-text-input id="search" class="block mt-1 w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
-                <div class="flex items-center justify-end mt-4">
-                        <x-primary-button class="ml-4">
-                            {{ __('Search') }}
-                        </x-primary-button>
-                    </div>
-            </div>
-        </form>
-    </div>
-
-     <div class="max-w-4xl mx-auto p-10">
+    <div class="max-w-7xl mx-auto sm:px-2 md:px-6 lg:px-8 p-10">
+         <div class="pb-5">
+             <form method="GET" action="{{ route('reader.transaksi.list') }}">
+                 <div class="flex justify-center">
+                     <x-text-input id="search" class="block mt-1 w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+                     <div class="flex items-center justify-end">
+                             <x-primary-button class="ml-4">
+                                 {{ __('Search') }}
+                             </x-primary-button>
+                         </div>
+                 </div>
+             </form>
+         </div>
         <table class="min-w-full bg-white rounded-lg overflow-hidden">
             <thead class="bg-gray-100 text-gray-700">
                 <tr>

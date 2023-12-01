@@ -50,6 +50,8 @@ Route::middleware(['auth', 'verified', 'reader'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/list-course', [CourseController::class, 'getAllCourseAdmin'])->name('admin.course.list');
+    Route::get('/admin/list-course/filter', [CourseController::class, 'adminCoursefilter'])->name('admin.course.filter');
+    Route::get('/admin/list-course/sort', [CourseController::class, 'adminCourseSort'])->name('admin.course.sort');
     Route::get('/admin/add-course', [CourseController::class, 'formAddCourse'])->name('admin.course.form-add');
     Route::post('/admin/add-course', [CourseController::class, 'addCourse'])->name('admin.course.add');
     Route::get('/admin/course/{id}/edit', [CourseController::class, 'formEditCourse'])->name('admin.course.form-edit');
