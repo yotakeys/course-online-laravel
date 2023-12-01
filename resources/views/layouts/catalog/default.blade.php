@@ -20,6 +20,8 @@
             @include('layouts.header')
             <div class="pt-16 px-2 sm:px-0">
                 @yield('content-section')
+            </div>
+            <div class="border border-t-black mt-40">
                 @include('layouts.footer')
             </div>
         </div>

@@ -21,6 +21,8 @@
                 <x-blindspot />
                 @yield('landing-section')
                 @yield('popular-courses-section')
+            </div>
+            <div class="border border-t-black ">
                 @include('layouts.footer')
             </div>
         </div>

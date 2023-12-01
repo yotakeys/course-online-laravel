@@ -21,6 +21,9 @@
             <main class="pt-16 px-2 sm:px-0">
                 {{ $slot }}
             </main>
+            <div class="border border-t-black mt-40">
+                @include('layouts.footer')
+            </div>
         </div>
     </body>
 </html>
