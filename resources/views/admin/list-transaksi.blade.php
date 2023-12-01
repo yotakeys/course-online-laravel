@@ -31,7 +31,7 @@
                         <td class="py-2 px-4 text-center">{{$transaksi->status->name}}</td>
                         <td class ="py-2 px-4 text-center">
                             <a href="{{ route('admin.transaksi.detail', ['id' => $transaksi->id])}}">
-                                <x-secondary-button class="border-blue-700 py-3">Detail</x-secondary-button>
+                                <x-secondary-button class="border-gray-700 border-2 py-3">Detail</x-secondary-button>
                             </a>
                         </td>
                     </tr>

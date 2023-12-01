@@ -21,7 +21,7 @@
         <div class="catalog__header border-gray-400 border-b flex flex-col sm:flex-row pt-2 pb-2">
             <div class="course__header flex items-center pr-2 pb-2 pt-2 align-middle">
                 <h1 class="catalog__title text-left pr-2 font-bold text-xl">Programming Courses</h1>
-                <span class="text-center align-middle pt-0.5">20 Result</span>
+                <span class="text-center align-middle pt-0.5">{{ count($courses) }} Result</span>
             </div>
             <!-- drop down: most recent and most popular -->
             <!-- drop down: most recent and most popular -->
