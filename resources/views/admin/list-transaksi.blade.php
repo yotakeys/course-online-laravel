@@ -1,5 +1,5 @@
 <x-admin-app-layout>
-    <div class="px-24 py-8">
+    <div class="px-24 pt-20 py-8">
         <form method="GET" action="{{ route('admin.transaksi.list') }}">
             <div class="flex justify-center px-24">
                 <x-text-input id="search" class="block mt-1 w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />

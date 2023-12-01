@@ -56,7 +56,7 @@
                     </form>
                 </div>
                 <div class="hidden sm:block pl-5 ">
-                    <img src="{{ asset('images/graphic.png') }}" alt="Graphic" />
+                    <img src="{{ asset('images/graphic3.png') }}" alt="Graphic" />
                 </div>
             </div>
         </div>

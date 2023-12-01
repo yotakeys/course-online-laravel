@@ -70,7 +70,7 @@
                 <div class="listing__course pl-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1">
                     @foreach ($courses as $course)
                     <a href="{{ route('reader.course.detail', ['id' => $course->id]) }}">
-                        <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                        <div class="p-2 h-full"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
                     </a>
                     @endforeach
                 </div>

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-primary border-b-2 border-black">
+<nav x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = $event.target.documentElement.scrollTop > 0" :class="{ 'bg-white border-black border-b-2': scrolled }" class="bg-primary fixed z-50 w-full">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
