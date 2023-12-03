@@ -20,9 +20,13 @@
             @include('admin.layouts.navigation')
 
             <!-- Page Content -->
-            <main class="pt-16 px-2 sm:px-0">
+            <main class="pt-16 pb-10 px-2 sm:px-0">
                 {{ $slot }}
             </main>
+            
+            <div class="border border-t-black ">
+                @include('layouts.footer')
+            </div>
         </div>
     </body>
 </html>

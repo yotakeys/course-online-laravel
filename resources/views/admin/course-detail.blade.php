@@ -24,7 +24,7 @@
             </div>
             <h1 class="course__title font-extrabold text-5xl py-5">{{$course->title}}</h1>
             <h2 class="text-xl font-extrabold pb-2">About this course</h2>
-            <p class="text-black">{{$course->description}}</p>
+            <p class="text-black">{{$course->description}}</p>            
         </div>
 
         <div class="course__syllabus pt-5">
@@ -58,7 +58,7 @@
                         </div>
                         <div class="accordion__content" data-accordion='content'>
                             <div class="">
-                                <p>{{$section->text}}</p>
+                                <p style="display: -webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2;">{{$section->text}}</p>
                             </div>
                         </div>
                     </div>

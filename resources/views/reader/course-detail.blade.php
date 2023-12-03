@@ -34,9 +34,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="accordion__content" data-accordion='content'>
+                        <div class="accordion__content " data-accordion='content' >
                             <div class="">
-                                <p>{{$section->text}}</p>
+                                <p style="display: -webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2;">{{$section->text}}</p>
                             </div>
                         </div>
                     </div>

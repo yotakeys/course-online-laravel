@@ -25,5 +25,16 @@
                 @include('layouts.footer')
             </div>
         </div>
+        <script>
+            let copyText = document.querySelector(".copy__text");
+            copyText.querySelector("button").addEventListener("click", () => {
+                copyText.querySelector("input").select(); 
+                document.execCommand("copy");
+                copyText.classList.add("active");
+                setTimeout(() => {
+                    copyText.classList.remove("active");
+                }, 1000);
+            });
+        </script>
     </body>
 </html>
