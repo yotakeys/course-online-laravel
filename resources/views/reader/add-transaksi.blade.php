@@ -11,7 +11,7 @@
             <div class="left__contaienr col-span-2">
                 <div class="plan__container bg-white border-2 border-black pb-10">
                     <h1 class="text-left text-2xl font-extrabold bg-gray-100 px-5 py-3 border-b-2 border-black">Plan and subscription</h1>
-                    <div class="plan__content w-[400px] h-full py-5 pl-10">
+                    <div class="plan__content w-full h-full py-5 px-5">
                         <div class="relative group flex flex-col">
                             <div class="relative z-10 w-full h-full rounded-lg border border-black bg-white flex flex-col transform translate-x-2 translate-y-0">
                                 <div class="rounded-lg p-2 text-left flex bg-yellow-500 justify-between">
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="py-4 flex text-center justify-center border-b-2 border-dotted">
                                     <span class="font-extrabold">Rp</span>
-                                    <h1 class="text-left pb-2 font-semibold text-5xl">100</h1>
+                                    <h1 class="text-left pb-2 font-semibold text-5xl">100,000</h1>
                                 </div>
                                 <div class="py-2 px-5 ">
                                     <div class="items-center">
