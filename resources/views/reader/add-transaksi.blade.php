@@ -111,6 +111,12 @@
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
                         </div>
 
+                        <div class="term__and__condition pl-3 pt-5">
+                            <!-- input check box and link to term and condition -->
+                            <input type="checkbox" class="rounded-md"> 
+                            <span class="text-sm">I agree to the <a href="#" class="text-yellow-500">Terms and Conditions</a></span>
+                        </div>
+
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="bg-yellow-500 ml-4">
                                 {{ __('Buy') }}

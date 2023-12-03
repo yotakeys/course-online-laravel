@@ -56,9 +56,9 @@
                 @method('PATCH')
 
                 <!-- status -->
-                <div>
-                    <x-input-label for="status" :value="__('Status')" />
-                    <select id="status_id" class="block mt-1 w-full" name="status_id" required autofocus autocomplete="status">
+                <div class="">
+                    <x-input-label for="status" :value="__('Status')" class=""/>
+                    <select id="status_id" class="block mt-1 w-full rounded-lg" name="status_id" required autofocus autocomplete="status">
                         @foreach ($statuses as $status)
                         <option @if ($status->id == $transaksi->status_id) selected @endif value="{{ $status->id }}">{{ $status->name }}</option>
                         @endforeach
@@ -71,7 +71,7 @@
                 <!-- report -->
                 <div>
                     <x-input-label for="report" :value="__('Report')" />
-                    <x-text-input id="report" class="block mt-1 w-full" type="text" name="report" value="{{$transaksi->report}}" required autofocus autocomplete="report" />
+                    <x-text-input id="report" class="block mt-1 w-full border-gray-700" type="text" name="report" value="{{$transaksi->report}}" required autofocus autocomplete="report" />
                     <x-input-error :messages="$errors->get('report')" class="mt-2" />
                 </div>
 
