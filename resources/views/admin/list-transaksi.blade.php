@@ -25,7 +25,7 @@
                 </thead>
                 <tbody class="divide-y divide-gray-200">
                     @foreach ($transaksis as $transaksi)
-                        <tr>
+                        <tr class="{{ $transaksi->status->name == 'APPROVED' ? 'bg-lime-400' : ($transaksi->status->name == 'REJECTED' ? ' bg-red-400' : ($transaksi->status->name == 'PENDING' ? 'bg-yellow-400' : ($transaksi->status->name == 'CHANGES NEEDED' ? 'bg-blue-400' : ''))) }}">
                         <td class="py-2 px-4 text-center">{{$transaksi->user->name}}</td>
                         <td class="py-2 px-4 text-center">{{$transaksi->user->email}}</td>
                         <td class="py-2 px-4 text-center">{{$transaksi->status->name}}</td>

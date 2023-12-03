@@ -3,7 +3,7 @@
          <div class="pb-5">
              <form method="GET" action="{{ route('reader.transaksi.list') }}">
                  <div class="flex justify-center">
-                     <x-text-input id="search" class="block mt-1 w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+                     <x-text-input id="search" class="block w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
                      <div class="flex items-center justify-end">
                              <x-primary-button class="ml-4">
                                  {{ __('Search') }}
@@ -18,18 +18,18 @@
                     <th class="py-2 px-4">Name</th>
                     <th class="py-2 px-4">Plan</th>
                     <th class="py-2 px-4">Status</th>
-                    <th class="py-2 px-4">Detail</th>
+                    <th class="py-2 px-4">Action</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
                 @foreach ($transaksis as $transaksi)
-                    <tr>
+                <tr class="{{ $transaksi->status->name == 'APPROVED' ? 'bg-lime-400' : ($transaksi->status->name == 'REJECTED' ? ' bg-red-400' : ($transaksi->status->name == 'PENDING' ? 'bg-yellow-400' : ($transaksi->status->name == 'CHANGES NEEDED' ? 'bg-blue-400' : ''))) }}">
                     <td class="py-2 px-4 text-center">{{$transaksi->user->name}}</td>
                     <td class="py-2 px-4 text-center">{{$transaksi->plan->name}}</td>
                     <td class="py-2 px-4 text-center">{{$transaksi->status->name}}</td>
                     <td class ="py-2 px-4 text-center">
                         <a href="{{ route('reader.transaksi.form-edit', ['id' => $transaksi->id])}}">
-                            <x-secondary-button class="bg-yellow-500 border-none py-3">Edit</x-secondary-button>
+                            <x-secondary-button class="bg-white border-2 border-gray-700">Edit</x-secondary-button>
                         </a>
                     </td>
                 </tr>
