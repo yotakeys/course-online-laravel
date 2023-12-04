@@ -24,6 +24,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="search__bar pb-5 pt-3">
+            <form method="GET" action="{{ route('reader.catalog') }}">
+                <div class="flex justify-center">
+                    <x-text-input id="search" class="block w-full " type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+                    <div class="flex items-center justify-end ">
+                        <x-primary-button class="ml-4 py-3 bg-white border border-secondary hover:bg-secondary hover:text-white">
+                            {{ __('Search') }}
+                        </x-primary-button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <div class="catalog__header border-gray-400 border-b flex flex-col sm:flex-row pt-2 pb-2">
             <div class="course__header flex items-center pr-2 pb-2 pt-2 align-middle">
                 <h1 class="catalog__title text-left pr-2 font-bold text-xl">Programming Courses</h1>
