@@ -9,10 +9,10 @@
                 <a href="{{ route('admin.section.form-edit', ['section_id' => $section->id, 'course_id' => $courseId]) }}">
                     <x-secondary-button class="hover:bg-yellow-500 hover:text-white border-yellow-500 border">Edit</x-secondary-button>
                 </a>
-                <form method="POST" route="{{ route('admin.section.delete',  ['section_id' => $section->id, 'course_id' => $courseId]) }}">
+                <form method="POST" action="{{ route('admin.section.delete',  ['section_id' => $section->id, 'course_id' => $courseId]) }}">
                     @csrf
                     @method('DELETE')
-                    <x-secondary-button class="border-red-500 border hover:bg-red-500 hover:text-white">Delete</x-secondary-button>
+                    <x-primary-button class="border-red-500 border bg-white hover:bg-red-500 hover:text-white">Delete</x-primary-button>
                 </form>
             </div>
         </div>
