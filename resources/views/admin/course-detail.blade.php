@@ -9,12 +9,28 @@
                 <a href="{{ route('admin.course.form-edit', ['id' => $course->id])}}">
                     <x-secondary-button class="border-yellow-500 hover:bg-yellow-500 hover:text-white border">Edit</x-secondary-button>
                 </a>
-                <form method="POST" route="{{ route('admin.course.delete', ['id' => $course->id]) }}">
-                    @csrf
-                    @method('DELETE')
+                <x-primary-button class="border-red-500 bg-white hover:bg-red-500 hover:text-white border" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-course-deletion')">Delete</x-primary-button>
+                <x-modal name="confirm-course-deletion" :show="$errors->courseDeletion->isNotEmpty()" focusable>
+                    <form method="POST" route="{{ route('admin.course.delete', ['id' => $course->id]) }}" class="p-6">
+                        @csrf
+                        @method('DELETE')
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ __('Are you sure you want to delete this course?') }}
+                        </h2>
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ __('Once your course is deleted, all of its resources and data will be permanently deleted.') }}
+                        </p>
+                        <div class="mt-6 flex justify-end">
+                            <x-secondary-button x-on:click="$dispatch('close')">
+                                {{ __('Cancel') }}
+                            </x-secondary-button>
 
-                    <x-primary-button class="border-red-500 bg-white hover:bg-red-500 hover:text-white border">Delete</x-primary-button>
-                </form>
+                            <x-danger-button class="ml-3">
+                                {{ __('Delete Course') }}
+                            </x-danger-button>
+                        </div>
+                    </form>
+                </x-modal>
             </div>
         </div>
 
