@@ -39,11 +39,11 @@ Route::middleware(['auth', 'verified', 'reader'])->group(function () {
 
     Route::get('/reader/course/{id}', [CourseController::class, 'courseDetailReader'])->name('reader.course.detail');
 
-    Route::get('/reader/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailReader'])->name('reader.section.detail');
+    Route::get('/reader/course/{course_id}/section/{section_id}', [SectionController::class, 'sectionDetailReader'])->middleware('subscribed')->name('reader.section.detail');
 
     Route::get('/reader/transaksi', [TransaksiController::class, 'getAllTransaksiReader'])->name('reader.transaksi.list');
-    Route::get('/reader/transaksi/form/{id}', [TransaksiController::class, 'formAddTransaksi'])->name('reader.transaksi.form-add');
-    Route::get('/reader/transaksi/{id}', [TransaksiController::class, 'formEditTransaksi'])->name('reader.transaksi.form-edit');
+    Route::get('/reader/transaksi/form/{id}', [TransaksiController::class, 'formAddTransaksi'])->middleware('planned')->name('reader.transaksi.form-add');
+    Route::get('/reader/transaksi/{id}', [TransaksiController::class, 'formEditTransaksi'])->middleware('transaksi.owner')->name('reader.transaksi.form-edit');
     Route::patch('/reader/transaksi/{id}', [TransaksiController::class, 'editTransaksi'])->name('reader.transaksi.edit');
     Route::post('/reader/transaksi', [TransaksiController::class, 'addTransaksi'])->name('reader.transaksi.add');
 });
@@ -69,6 +69,8 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin/transaksi', [TransaksiController::class, 'getAllTransaksiAdmin'])->name('admin.transaksi.list');
     Route::get('/admin/transaksi/{id}', [TransaksiController::class, 'transaksiDetailAdmin'])->name('admin.transaksi.detail');
     Route::patch('/admin/transaksi/{id}', [TransaksiController::class, 'changeStatusTransaksi'])->name('admin.transaksi.change-status');
+
+    Route::get('admin/summary', [TransaksiController::class, 'summary'])->name('admin.summary');
 });
 
 Route::middleware('auth')->group(function () {

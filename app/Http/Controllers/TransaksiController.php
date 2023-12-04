@@ -143,4 +143,14 @@ class TransaksiController extends Controller
 
         return redirect()->route('reader.transaksi.list')->with('success', 'Transaksi updated successfully');
     }
+
+    public function summary()
+    {
+
+        $transaksi = Transaksi::with(['user', 'plan', 'status'])->get();
+        $plans = Plan::with(['transaksi', 'courses'])->get();
+
+
+        return view('admin.summary', ['transaksi' => $transaksi, 'plans' => $plans]);
+    }
 }
