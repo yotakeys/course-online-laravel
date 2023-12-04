@@ -2,10 +2,13 @@
 
 namespace App\Console;
 
+use App\Models\Transaksi;
 use App\Models\User;
+use App\Schedules\TransaksiSchedule;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Schedules\UserSchedule;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -21,6 +24,11 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             UserSchedule::updateCacheName();
         })->everyMinute();
+
+
+        $schedule->call(function () {
+            TransaksiSchedule::updateStatus();
+        })->everyHour();
     }
 
 
