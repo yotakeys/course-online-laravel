@@ -23,6 +23,9 @@ class IsSubscribed
         $user_id = Auth::user()->id;
 
         $course = Course::find($course_id);
+        if ($course->plan_id == 1) {
+            return $next($request);
+        }
 
         $transaksi = Transaksi::where('user_id', $user_id)->where('plan_id', $course->plan_id)->where('status_id', 4)->first();
 
