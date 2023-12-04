@@ -68,7 +68,7 @@ class Kernel extends HttpKernel
         'reader' => \App\Http\Middleware\CheckReader::class,
         'writer' => \App\Http\Middleware\CheckWriter::class,
         'planned' => \App\Http\Middleware\IsPlanned::class,
-        'suscribed' => \App\Http\Middleware\IsSubscribed::class,
+        'subscribed' => \App\Http\Middleware\IsSubscribed::class,
         'transaksi.owner' => \App\Http\Middleware\IsOwnerTransaksi::class,
     ];
 }

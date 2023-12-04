@@ -19,7 +19,7 @@ class IsSubscribed
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $course_id = $request->route('id');
+        $course_id = $request->route('course_id');
         $user_id = Auth::user()->id;
 
         $course = Course::find($course_id);
@@ -27,9 +27,8 @@ class IsSubscribed
         $transaksi = Transaksi::where('user_id', $user_id)->where('plan_id', $course->plan_id)->where('status_id', 4)->first();
 
         if (!$transaksi) {
-            return redirect()->route('pricing');
+            return redirect()->route('reader.pricing');
         }
-
 
         return $next($request);
     }
