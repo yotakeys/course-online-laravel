@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="bg-yellow-500 ml-4">
+                            <x-primary-button class="border border-yellow-500 bg-white hover:text-white hover:bg-yellow-500 ml-4">
                                 {{ __('Update') }}
                             </x-primary-button>
                         </div>

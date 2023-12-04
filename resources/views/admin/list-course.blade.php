@@ -3,9 +3,9 @@
         <div class="search__bar pb-5 pt-3">
             <form method="GET" action="{{ route('admin.course.list') }}">
                 <div class="flex justify-center">
-                    <x-text-input id="search" class="block w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+                    <x-text-input id="search" class="block w-full " type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
                     <div class="flex items-center justify-end ">
-                        <x-primary-button class="ml-4">
+                        <x-primary-button class="ml-4 py-3 bg-white border border-secondary hover:bg-secondary hover:text-white">
                             {{ __('Search') }}
                         </x-primary-button>
                     </div>
@@ -14,7 +14,7 @@
         </div>
         <div class="new__course__button">
             <a href="{{ route('admin.course.form-add') }}">
-                <x-secondary-button class="border-lime-500 border-2 py-3">Add New Course</x-secondary-button>
+                <x-secondary-button class="border-lime-500 border-2 hover:bg-lime-500 hover:text-white ">New Course</x-secondary-button>
             </a>
         </div>
 
@@ -71,4 +71,5 @@
             </div>
         </div>
     </div>
+    @@include('admin.modal.create')
 </x-admin-app-layout>

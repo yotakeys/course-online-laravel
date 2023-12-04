@@ -11,7 +11,7 @@
         @if($title == "Basic")
         <div class="button__try flex justify-center py-5">
             <a href="{{ route('reader.transaksi.form-add', ['id' => 2]) }}">
-                <x-secondary-button class="bg-yellow-500 border-none py-3">Try Basic</x-secondary-button>
+                <x-secondary-button class="hover:bg-yellow-500 hover:text-white border border-yellow-500 py-3">Try Basic</x-secondary-button>
             </a>
         </div>
         @endif

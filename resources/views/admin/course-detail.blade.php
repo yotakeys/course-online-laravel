@@ -1,18 +1,21 @@
 <x-admin-app-layout>
     <div class="course__detail__container max-w-7xl mx-auto sm:px-2 md:px-6">
-        <div class="action__button flex justify-end py-8 gap-3">
-            <a href="{{ route('admin.course.list') }}">
-                <x-secondary-button class="border-gray-700 border-2 py-3">Back To List</x-secondary-button>
-            </a>
-            <a href="{{ route('admin.course.form-edit', ['id' => $course->id])}}">
-                <x-secondary-button class="border-yellow-500 border-2 py-3">Edit Course</x-secondary-button>
-            </a>
-            <form method="POST" action="{{ route('admin.course.delete', ['id' => $course->id]) }}">
-                @csrf
-                @method('DELETE')
+        <div class="action__button flex justify-between bg-white border border-black py-1 px-1 rounded-xl items-center my-3">
+            <h1 class="px-2 font-extrabold text-lg">Tools :</h1>
+            <div class="flex gap-3">
+                <a href="{{ route('admin.course.list') }}">
+                    <x-secondary-button class="border-gray-700 hover:bg-gray-700 hover:text-white border-">Back</x-secondary-button>
+                </a>
+                <a href="{{ route('admin.course.form-edit', ['id' => $course->id])}}">
+                    <x-secondary-button class="border-yellow-500 hover:bg-yellow-500 hover:text-white border">Edit</x-secondary-button>
+                </a>
+                <form method="POST" route="{{ route('admin.course.list') }}">
+                    @csrf
+                    @method('DELETE')
 
-                <x-primary-button class="border-red-500 border-2 py-3">Delete Course</x-primary-button>
-            </form>
+                    <x-secondary-button class="border-red-500 hover:bg-red-500 hover:text-white border">Delete</x-secondary-button>
+                </form>
+            </div>
         </div>
 
         <div class="course__banner rounded-lg border border-black p-8">
@@ -24,13 +27,13 @@
             </div>
             <h1 class="course__title font-extrabold text-5xl py-5">{{$course->title}}</h1>
             <h2 class="text-xl font-extrabold pb-2">About this course</h2>
-            <p class="text-black">{{$course->description}}</p>            
+            <p class="text-black">{{$course->description}}</p>
         </div>
 
         <div class="course__syllabus pt-5">
-            <div class="justify-end py-1">
+            <div class="justify-end py-2">
                 <a href="{{ route('admin.section.form-add', ['course_id' => $course->id]) }}">
-                    <x-secondary-button class="border-lime-500 border-2 py-3">Add Lesson</x-secondary-button>
+                    <x-secondary-button class="border-lime-500 border hover:bg-lime-500 hover:text-white">New Lesson</x-secondary-button>
                 </a>
             </div>
             <div class="bg-white p-5 border border-black">

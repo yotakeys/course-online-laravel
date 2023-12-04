@@ -5,7 +5,7 @@
                 <div class="flex justify-center ">
                     <x-text-input id="search" class="block w-full" type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
                     <div class="flex items-center justify-end ">
-                            <x-primary-button class="ml-4">
+                            <x-primary-button class="ml-4 py-3 bg-white border border-secondary hover:bg-secondary hover:text-white">
                                 {{ __('Search') }}
                             </x-primary-button>
                         </div>
@@ -13,7 +13,7 @@
             </form>
         </div>
     
-         <div class="transaksi__table pt-2">
+         <div class="transaksi__table pt-5">
             <table class="min-w-full bg-white rounded-lg overflow-hidden">
                 <thead class="bg-gray-100 text-gray-700">
                     <tr>
@@ -31,7 +31,7 @@
                         <td class="py-2 px-4 text-center">{{$transaksi->status->name}}</td>
                         <td class ="py-2 px-4 text-center">
                             <a href="{{ route('admin.transaksi.detail', ['id' => $transaksi->id])}}">
-                                <x-secondary-button class="border-gray-700 border-2 py-3">Detail</x-secondary-button>
+                                <x-secondary-button class="border-gray-700 border">Detail</x-secondary-button>
                             </a>
                         </td>
                     </tr>

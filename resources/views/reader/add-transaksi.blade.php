@@ -25,21 +25,21 @@
                                 <div class="py-2 px-5 ">
                                     <div class="items-center">
                                         <i class="ri-checkbox-circle-fill text-green-500 text-xl"></i>
-                                        <span class="pl-2">Access to all courses</span>
+                                        <span class="pl-1">Access to all courses</span>
 
                                     </div>
                                     <div class="flex items-center">
                                         <i class="ri-checkbox-circle-fill text-green-500 text-xl"></i>
                                         <span class="pl-2">Code challenges</span>
                                         <div class="bg-yellow-200 rounded-lg px-1 ml-2">
-                                            <span class="text-sm">new</span>
+                                            <span class="text-sm">Coming soon..</span>
                                         </div>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="ri-checkbox-circle-fill text-green-500 text-xl"></i>
                                         <span class="pl-2">Assignments</span>
                                         <div class="bg-yellow-200 rounded-lg px-1 ml-2">
-                                            <span class="text-sm">new</span>
+                                            <span class="text-sm">Coming soon..</span>
                                         </div>
                                     </div>
                                 </div>
@@ -118,7 +118,7 @@
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="bg-yellow-500 ml-4">
+                            <x-primary-button class="bg-white border border-yellow-500 hover:text-white hover:bg-yellow-500 ml-4">
                                 {{ __('Buy') }}
                             </x-primary-button>
                         </div>

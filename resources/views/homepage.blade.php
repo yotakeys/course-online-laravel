@@ -49,7 +49,7 @@
                                 </a>
                             @endif
 
-                            <x-primary-button class="ml-3">
+                            <x-primary-button class="ml-3 bg-white border border-secondary hover:bg-secondary hover:text-white">
                                 {{ __('Log in') }}
                             </x-primary-button>
                         </div>
@@ -72,12 +72,14 @@
             </div>
             <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 @foreach ($courses as $course)
-                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                    <a href="{{ route('reader.course.detail', ['id' => $course->id]) }}">
+                        <div class="p-2 h-full"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                    </a>
                 @endforeach
             </div>
             <div class="flex justify-center pt-10 py-1">
-                <a href="{{ route('reader.catalog') }}">
-                    <x-secondary-button class="bg-yellow-500 border-none py-3">Explore Full Catalog</x-secondary-button>
+                <a href="{{ route('catalog.index') }}">
+                    <x-secondary-button class="bg-white border border-yellow-500 hover:text-white hover:bg-yellow-500 py-3">Full Catalog</x-secondary-button>
                 </a>
             </div>
         </div>

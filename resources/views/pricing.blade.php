@@ -34,10 +34,22 @@
                 <div class="py-4 px-4 bg-gray-100">
                     <h1 class="text-xl font-extrabold ">Access to all paid courses</h1>
                 </div>
+                <div class="py-4 px-4 bg-white">
+                    <h1 class="text-xl font-extrabold ">Code challenges</h1>
+                </div>
+                <div class="py-4 px-4 bg-gray-100">
+                    <h1 class="text-xl font-extrabold ">Assignments</h1>
+                </div>
             </div>
             <div class="checkbox__plan__free text-center text-3xl col-span-1 border border-black grid grid-rows-2">
                 <div class="py-3 px-3 bg-white">
                     <i class="ri-checkbox-circle-line"></i>
+                </div>
+                <div class="py-3 px-3 bg-gray-100">
+                    <i class="ri-subtract-fill"></i>
+                </div>
+                <div class="py-3 px-3 bg-white">
+                    <i class="ri-subtract-fill"></i>
                 </div>
                 <div class="py-3 px-3 bg-gray-100">
                     <i class="ri-subtract-fill"></i>
@@ -49,6 +61,16 @@
                 </div>
                 <div class="py-3 px-3 bg-gray-100">
                     <i class="ri-checkbox-circle-line"></i>
+                </div>
+                <div class="py-3 px-3 bg-white">
+                    <div class="inline-block">
+                        <span class="text-sm bg-yellow-200 rounded-lg px-1 ">Coming Soon..</span>
+                    </div>
+                </div>
+                <div class="py-3 px-3 bg-gray-100">
+                    <div class=" inline-block">
+                        <span class="text-sm bg-yellow-200 rounded-lg px-1">Coming Soon..</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 <x-reader-app-layout>
     <div class="dashboard__container max-w-7xl mx-auto sm:px-2 md:px-6 lg:px-8 lg:py-10 grid grid-cols-3">
-        <div class="dashboard__banner col-span-2 w-full h-[250px] group flex bg-tertiary rounded-2xl" id="dashboard-banner">
+        <div class="dashboard__banner col-span-2 w-full h-full group flex bg-tertiary rounded-2xl" id="dashboard-banner">
             <div class="justify-end md:pr-5 lg:pr-2 hidden sm:block p-5">
-                <img class="md:w-[150px] lg:w-[400px] h-auto" src="{{ asset('images/dashboard-img.png') }}" alt="image">
+                <img class="md:w-[150px] lg:w-[300px] h-auto" src="{{ asset('images/dashboard-img.png') }}" alt="image">
             </div>
             <div class="pt-7 pb-5 pl-5 lg:pr-10 sm:pr-5 text-white self-center">
                 <h1 class="text-3xl font-extrabold pt-2 pb-2">Welcome to your dashboard</h1>

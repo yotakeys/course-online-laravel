@@ -25,6 +25,19 @@
                 <div class="absolute z-0 top-0 w-full h-full rounded-3xl border-black border transform translate-x-0 translate-y-5"></div>
             </div>
         </div>
+        <!-- ini search bar -->
+        <div class="search__bar pb-5 pt-3">
+            <form method="GET" action="{{ route('reader.catalog') }}">
+                <div class="flex justify-center">
+                    <x-text-input id="search" class="block w-full " type="text" name="search" placeholder="Search Here" value="{{ isset($search) ? $search : null }}" autofocus autocomplete="search" />
+                    <div class="flex items-center justify-end ">
+                        <x-primary-button class="ml-4 py-3 bg-white border border-secondary hover:bg-secondary hover:text-white">
+                            {{ __('Search') }}
+                        </x-primary-button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
     <div class="catalog__header border-gray-400 border-b flex flex-col sm:flex-row pt-2 pb-2">
         <div class="course__header flex items-center pr-2 pb-2 pt-2 align-middle">
@@ -71,7 +84,9 @@
         <div class="main__content lg:col-span-4 grid pt-3">
             <div class="listing__course pl-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1">
                 @foreach ($courses as $course)
-                    <div class="p-2"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                <a href="{{ route('reader.course.detail', ['id' => $course->id]) }}">
+                    <div class="p-2 h-full"> @component('components.course-card', ['plan' => $course->plan->name,'title' => $course->title, 'description' => $course->description,'section_many' => count($course->sections),])@endcomponent</div>
+                </a>
                 @endforeach
             </div>
         </div>
