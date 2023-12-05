@@ -46,7 +46,7 @@
                                         Total Price
                                         <span>:</span>
                                     </td>
-                                    <td class="py-2 px-4">{{$transaksi->total_price}}</td>
+                                    <td class="py-2 px-4">{{ 'Rp ' . number_format($transaksi->total_price, 0, '.', ',') }}</td>
                                 </tr>
                                 <tr>
                                     <td class="py-2 px-4 flex justify-between">

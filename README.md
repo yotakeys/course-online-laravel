@@ -1,12 +1,13 @@
-## PBKK Online Course (Final Project)
+# PBKK Online Course (Final Project)
+Perkenalkan kami dari kelas `Pemrograman Bebasis Kerangka Kerja D Kelompok 7`, dengan anggota sebagai berikut:
 
-    Nama : Keyisa Raihan Illah Setiadi
-    NRP : 5025211002
+| Nama                   | NRP        | Github Username |
+| ---------------------- | ---------- | --------------- |
+| Alfan Lukeyan Rizki    | 5025211046 | [AlfanLukeyan](https://github.com/AlfanLukeyan)
+| Keyisa Raihan Illah Setiadi | 5025211002 | [yotakeys](https://github.com/yotakeys)
 
-    Nama : Alfan Lukeyan Rizki
-    NRP : 5025211046
+Apps Demonstration : https://youtu.be/6Thl5Jp6dXQ , Happy Watching!
 
-    Kelas : PBKK D
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 

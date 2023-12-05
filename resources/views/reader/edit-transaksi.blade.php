@@ -46,10 +46,10 @@
                         <!-- price -->
                         <div class="text-lg pl-3 flex items-center mb-2">
                             <div class="flex"><span class="font-extrabold pr-1">Total</span><span>charged</span></div>
-                            <div class="flex pl-32 items-center font-extrabold">
+                            <div class="flex pl-28 items-center font-extrabold">
                                 <span class="">Rp</span>
                                 <x-input-label for="total_price" :value="__('Price')" class="hidden" />
-                                <x-text-input id="total_price" disabled="true" class="block mt-1 w-full border-none outline-none shadow-none" type="text" name="total_price" value="{{$transaksi->total_price}}" required />
+                                <x-text-input id="total_price" disabled="true" class="block mt-1 w-full border-none outline-none shadow-none" type="text" name="total_price" value="{{ number_format($transaksi->total_price, 0, '.', ',') }}" required />
                             </div>
                             <x-input-error :messages="$errors->get('price')" class="mt-2" />
                         </div>
